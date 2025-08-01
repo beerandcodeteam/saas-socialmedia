@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('content_scheduling_id')->constrained();
-            $table->foreignId('parent_id')->constrained();
+            $table->foreignId('content_scheduling_id')->constrained('content_scheduling');
+            $table->foreignId('parent_id')->constrained('comments');
             $table->longText('content')->nullable();
             $table->string('name');
             $table->string('email');
